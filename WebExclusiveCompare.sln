@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WebExclusiveCompare", "WebExclusiveCompare.vbproj", "{4534CB78-C5F8-4B45-A925-A237F2645C7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4534CB78-C5F8-4B45-A925-A237F2645C7C}.Debug|x86.ActiveCfg = Debug|x86
+		{4534CB78-C5F8-4B45-A925-A237F2645C7C}.Debug|x86.Build.0 = Debug|x86
+		{4534CB78-C5F8-4B45-A925-A237F2645C7C}.Release|x86.ActiveCfg = Release|x86
+		{4534CB78-C5F8-4B45-A925-A237F2645C7C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
