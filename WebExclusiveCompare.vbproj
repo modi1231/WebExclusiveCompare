@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4534CB78-C5F8-4B45-A925-A237F2645C7C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>windows_sandbox.My.MyApplication</StartupObject>
-    <RootNamespace>windows_sandbox</RootNamespace>
-    <AssemblyName>windows_sandbox</AssemblyName>
+    <StartupObject>WebExclusiveCompare.My.MyApplication</StartupObject>
+    <RootNamespace>WebExclusiveCompare</RootNamespace>
+    <AssemblyName>WebExclusiveCompare</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -40,7 +40,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>windows_sandbox.xml</DocumentationFile>
+    <DocumentationFile>WebExclusiveCompare.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>windows_sandbox.xml</DocumentationFile>
+    <DocumentationFile>WebExclusiveCompare.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

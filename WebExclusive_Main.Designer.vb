@@ -36,7 +36,7 @@ Partial Class WebExclusive_Main
         Me.lblDifferent = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.uxGrid = New System.Windows.Forms.DataGridView()
-        Me.dsData = New windows_sandbox.dsForm12()
+        Me.dsData = New WebExclusiveCompare.dsForm12()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OldPricesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -249,7 +249,7 @@ Partial Class WebExclusive_Main
     End Sub
     Friend WithEvents btnLoadFile As System.Windows.Forms.Button
     Friend WithEvents uxGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents dsData As windows_sandbox.dsForm12
+    Friend WithEvents dsData As WebExclusiveCompare.dsForm12
     Friend WithEvents txtLocation As System.Windows.Forms.TextBox
     Friend WithEvents btnSaveXML As System.Windows.Forms.Button
     Friend WithEvents txtSaveLocation As System.Windows.Forms.TextBox
