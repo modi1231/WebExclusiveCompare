@@ -63,10 +63,10 @@ Namespace My
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Module MySettingsProperty
         
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.windows_sandbox.My.MySettings
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
+        Friend ReadOnly Property Settings() As Global.WebExclusiveCompare.My.MySettings
             Get
-                Return Global.windows_sandbox.My.MySettings.Default
+                Return Global.WebExclusiveCompare.My.MySettings.Default
             End Get
         End Property
     End Module
