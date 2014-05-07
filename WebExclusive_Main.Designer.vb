@@ -31,17 +31,18 @@ Partial Class WebExclusive_Main
         Me.txtUrl = New System.Windows.Forms.TextBox()
         Me.btnClearGrid = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblTotal = New System.Windows.Forms.Label()
-        Me.lblNew = New System.Windows.Forms.Label()
-        Me.lblDifferent = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblDifferent = New System.Windows.Forms.Label()
+        Me.lblNew = New System.Windows.Forms.Label()
         Me.uxGrid = New System.Windows.Forms.DataGridView()
-        Me.dsData = New WebExclusiveCompare.dsForm12()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OldPricesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATEENTEREDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATEUPDATEDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dsData = New WebExclusiveCompare.dsForm12()
+        Me.lblNothingNew = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -136,35 +137,9 @@ Partial Class WebExclusive_Main
         Me.Panel1.Size = New System.Drawing.Size(809, 125)
         Me.Panel1.TabIndex = 9
         '
-        'lblTotal
-        '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(15, 16)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(27, 13)
-        Me.lblTotal.TabIndex = 9
-        Me.lblTotal.Text = "total"
-        '
-        'lblNew
-        '
-        Me.lblNew.AutoSize = True
-        Me.lblNew.Location = New System.Drawing.Point(15, 38)
-        Me.lblNew.Name = "lblNew"
-        Me.lblNew.Size = New System.Drawing.Size(27, 13)
-        Me.lblNew.TabIndex = 9
-        Me.lblNew.Text = "new"
-        '
-        'lblDifferent
-        '
-        Me.lblDifferent.AutoSize = True
-        Me.lblDifferent.Location = New System.Drawing.Point(15, 59)
-        Me.lblDifferent.Name = "lblDifferent"
-        Me.lblDifferent.Size = New System.Drawing.Size(21, 13)
-        Me.lblDifferent.TabIndex = 9
-        Me.lblDifferent.Text = "diff"
-        '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.lblNothingNew)
         Me.Panel2.Controls.Add(Me.lblTotal)
         Me.Panel2.Controls.Add(Me.lblDifferent)
         Me.Panel2.Controls.Add(Me.lblNew)
@@ -173,6 +148,33 @@ Partial Class WebExclusive_Main
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(120, 125)
         Me.Panel2.TabIndex = 10
+        '
+        'lblTotal
+        '
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Location = New System.Drawing.Point(3, 13)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(27, 13)
+        Me.lblTotal.TabIndex = 9
+        Me.lblTotal.Text = "total"
+        '
+        'lblDifferent
+        '
+        Me.lblDifferent.AutoSize = True
+        Me.lblDifferent.Location = New System.Drawing.Point(3, 56)
+        Me.lblDifferent.Name = "lblDifferent"
+        Me.lblDifferent.Size = New System.Drawing.Size(21, 13)
+        Me.lblDifferent.TabIndex = 9
+        Me.lblDifferent.Text = "diff"
+        '
+        'lblNew
+        '
+        Me.lblNew.AutoSize = True
+        Me.lblNew.Location = New System.Drawing.Point(3, 35)
+        Me.lblNew.Name = "lblNew"
+        Me.lblNew.Size = New System.Drawing.Size(27, 13)
+        Me.lblNew.TabIndex = 9
+        Me.lblNew.Text = "new"
         '
         'uxGrid
         '
@@ -187,11 +189,6 @@ Partial Class WebExclusive_Main
         Me.uxGrid.Name = "uxGrid"
         Me.uxGrid.Size = New System.Drawing.Size(809, 505)
         Me.uxGrid.TabIndex = 1
-        '
-        'dsData
-        '
-        Me.dsData.DataSetName = "dsForm12"
-        Me.dsData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'NameDataGridViewTextBoxColumn
         '
@@ -226,7 +223,21 @@ Partial Class WebExclusive_Main
         Me.DATEUPDATEDDataGridViewTextBoxColumn.Name = "DATEUPDATEDDataGridViewTextBoxColumn"
         Me.DATEUPDATEDDataGridViewTextBoxColumn.Width = 120
         '
-        'Form12
+        'dsData
+        '
+        Me.dsData.DataSetName = "dsForm12"
+        Me.dsData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'lblNothingNew
+        '
+        Me.lblNothingNew.AutoSize = True
+        Me.lblNothingNew.Location = New System.Drawing.Point(3, 81)
+        Me.lblNothingNew.Name = "lblNothingNew"
+        Me.lblNothingNew.Size = New System.Drawing.Size(39, 13)
+        Me.lblNothingNew.TabIndex = 10
+        Me.lblNothingNew.Text = "Label1"
+        '
+        'WebExclusive_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -234,7 +245,7 @@ Partial Class WebExclusive_Main
         Me.Controls.Add(Me.uxGrid)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "Form12"
+        Me.Name = "WebExclusive_Main"
         Me.Text = "897 The River Phone-a-thon Web-Exclusive Scraper"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -267,4 +278,5 @@ Partial Class WebExclusive_Main
     Friend WithEvents OldPricesDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DATEENTEREDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DATEUPDATEDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lblNothingNew As System.Windows.Forms.Label
 End Class

@@ -22,6 +22,7 @@ Public Class WebExclusive_Main
         Dim sFiles() As String = Directory.GetFiles(txtSaveLocation.Text)
 
         Dim sNewest As String = String.Empty
+        lblNothingNew.Text = String.Empty
 
         '-- find newest saved file that has the sFileConst name and is .XML
         For Each temp As String In sFiles
@@ -172,6 +173,8 @@ Public Class WebExclusive_Main
         Dim temp As String = String.Empty
 
         Try
+            lblNothingNew.Text = String.Empty
+
             sr = New StreamReader(txtLocation.Text.Trim)
             temp = sr.ReadToEnd
         Catch ex As Exception
@@ -226,12 +229,18 @@ Public Class WebExclusive_Main
         Dim responseData As String
 
         Try
+            lblNothingNew.Text = String.Empty
+
             oWebRequest = CType(WebRequest.Create(txtUrl.Text.Trim), HttpWebRequest)
             oWebResponse = CType(oWebRequest.GetResponse(), HttpWebResponse)
             sr = New StreamReader(oWebResponse.GetResponseStream())
             responseData = sr.ReadToEnd()
             '-- send in the unformated html to be parsed.
             LoadData(responseData, DateTime.Now)
+
+            If lNew = 0 Then
+                lblNothingNew.Text = "Nothing New: " + Environment.NewLine + DateTime.Now.ToString
+            End If
         Catch ex As Exception
             MsgBox("btnLoadWeb Error: " + ex.Message)
 
@@ -255,5 +264,6 @@ Public Class WebExclusive_Main
         lblTotal.Text = "Total: 0"
         lblNew.Text = "New: 0"
         lblDifferent.Text = "Different: 0"
+        lblNothingNew.Text = String.Empty
     End Sub
 End Class
