@@ -32,6 +32,8 @@ Partial Class WebExclusive_Main
         Me.btnClearGrid = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lblRemoved = New System.Windows.Forms.Label()
+        Me.lblNothingNew = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.lblDifferent = New System.Windows.Forms.Label()
         Me.lblNew = New System.Windows.Forms.Label()
@@ -39,10 +41,10 @@ Partial Class WebExclusive_Main
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OldPricesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.REMOVEDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATEENTEREDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATEUPDATEDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dsData = New WebExclusiveCompare.dsForm12()
-        Me.lblNothingNew = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -139,6 +141,8 @@ Partial Class WebExclusive_Main
         '
         'Panel2
         '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.lblRemoved)
         Me.Panel2.Controls.Add(Me.lblNothingNew)
         Me.Panel2.Controls.Add(Me.lblTotal)
         Me.Panel2.Controls.Add(Me.lblDifferent)
@@ -149,10 +153,28 @@ Partial Class WebExclusive_Main
         Me.Panel2.Size = New System.Drawing.Size(120, 125)
         Me.Panel2.TabIndex = 10
         '
+        'lblRemoved
+        '
+        Me.lblRemoved.AutoSize = True
+        Me.lblRemoved.Location = New System.Drawing.Point(3, 70)
+        Me.lblRemoved.Name = "lblRemoved"
+        Me.lblRemoved.Size = New System.Drawing.Size(42, 13)
+        Me.lblRemoved.TabIndex = 11
+        Me.lblRemoved.Text = "remove"
+        '
+        'lblNothingNew
+        '
+        Me.lblNothingNew.AutoSize = True
+        Me.lblNothingNew.Location = New System.Drawing.Point(3, 90)
+        Me.lblNothingNew.Name = "lblNothingNew"
+        Me.lblNothingNew.Size = New System.Drawing.Size(39, 13)
+        Me.lblNothingNew.TabIndex = 10
+        Me.lblNothingNew.Text = "Label1"
+        '
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(3, 13)
+        Me.lblTotal.Location = New System.Drawing.Point(3, 7)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(27, 13)
         Me.lblTotal.TabIndex = 9
@@ -161,7 +183,7 @@ Partial Class WebExclusive_Main
         'lblDifferent
         '
         Me.lblDifferent.AutoSize = True
-        Me.lblDifferent.Location = New System.Drawing.Point(3, 56)
+        Me.lblDifferent.Location = New System.Drawing.Point(3, 49)
         Me.lblDifferent.Name = "lblDifferent"
         Me.lblDifferent.Size = New System.Drawing.Size(21, 13)
         Me.lblDifferent.TabIndex = 9
@@ -170,7 +192,7 @@ Partial Class WebExclusive_Main
         'lblNew
         '
         Me.lblNew.AutoSize = True
-        Me.lblNew.Location = New System.Drawing.Point(3, 35)
+        Me.lblNew.Location = New System.Drawing.Point(3, 28)
         Me.lblNew.Name = "lblNew"
         Me.lblNew.Size = New System.Drawing.Size(27, 13)
         Me.lblNew.TabIndex = 9
@@ -181,7 +203,7 @@ Partial Class WebExclusive_Main
         Me.uxGrid.AllowUserToAddRows = False
         Me.uxGrid.AutoGenerateColumns = False
         Me.uxGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.uxGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NameDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.OldPricesDataGridViewTextBoxColumn, Me.DATEENTEREDDataGridViewTextBoxColumn, Me.DATEUPDATEDDataGridViewTextBoxColumn})
+        Me.uxGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NameDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.OldPricesDataGridViewTextBoxColumn, Me.REMOVEDDataGridViewTextBoxColumn, Me.DATEENTEREDDataGridViewTextBoxColumn, Me.DATEUPDATEDDataGridViewTextBoxColumn})
         Me.uxGrid.DataMember = "DataTable1"
         Me.uxGrid.DataSource = Me.dsData
         Me.uxGrid.Dock = System.Windows.Forms.DockStyle.Fill
@@ -209,6 +231,13 @@ Partial Class WebExclusive_Main
         Me.OldPricesDataGridViewTextBoxColumn.HeaderText = "OldPrices"
         Me.OldPricesDataGridViewTextBoxColumn.Name = "OldPricesDataGridViewTextBoxColumn"
         '
+        'REMOVEDDataGridViewTextBoxColumn
+        '
+        Me.REMOVEDDataGridViewTextBoxColumn.DataPropertyName = "REMOVED"
+        Me.REMOVEDDataGridViewTextBoxColumn.HeaderText = "REMOVED"
+        Me.REMOVEDDataGridViewTextBoxColumn.Name = "REMOVEDDataGridViewTextBoxColumn"
+        Me.REMOVEDDataGridViewTextBoxColumn.Width = 40
+        '
         'DATEENTEREDDataGridViewTextBoxColumn
         '
         Me.DATEENTEREDDataGridViewTextBoxColumn.DataPropertyName = "DATE_ENTERED"
@@ -227,15 +256,6 @@ Partial Class WebExclusive_Main
         '
         Me.dsData.DataSetName = "dsForm12"
         Me.dsData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'lblNothingNew
-        '
-        Me.lblNothingNew.AutoSize = True
-        Me.lblNothingNew.Location = New System.Drawing.Point(3, 81)
-        Me.lblNothingNew.Name = "lblNothingNew"
-        Me.lblNothingNew.Size = New System.Drawing.Size(39, 13)
-        Me.lblNothingNew.TabIndex = 10
-        Me.lblNothingNew.Text = "Label1"
         '
         'WebExclusive_Main
         '
@@ -273,10 +293,12 @@ Partial Class WebExclusive_Main
     Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents lblDifferent As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents lblNothingNew As System.Windows.Forms.Label
     Friend WithEvents NameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PriceDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents OldPricesDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents REMOVEDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DATEENTEREDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DATEUPDATEDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lblNothingNew As System.Windows.Forms.Label
+    Friend WithEvents lblRemoved As System.Windows.Forms.Label
 End Class

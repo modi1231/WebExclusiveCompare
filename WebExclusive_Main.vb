@@ -10,6 +10,7 @@ Public Class WebExclusive_Main
     Dim lNew As Int32 = 0
     Dim lDiff As Int32 = 0
     Dim sFileConst As String = "_897river_"
+    Dim lRemove As Int32 = 0
 
     ''' <summary>
     ''' Try and load any saved xml files saved from a past run.
@@ -92,16 +93,17 @@ Public Class WebExclusive_Main
 
             sPrice = sPrice.Replace("Price: $", String.Empty)
 
-            dsTemp.DataTable1.AddDataTable1Row(sName.Trim, sPrice.Trim, String.Empty, sDATE_ENTERED, String.Empty)
+            dsTemp.DataTable1.AddDataTable1Row(sName.Trim, sPrice.Trim, String.Empty, String.Empty, sDATE_ENTERED, String.Empty)
         Next
 
         '-- if existing data is tehre merge.. so new items are added, and existing items that have had a price change or been sold are updated.
         Merge(dsTemp)
-
+        CheckRemoved(dsTemp)
         '-- total up everything
         lblTotal.Text = "Total: " + dsData.DataTable1.Rows.Count.ToString
         lblNew.Text = "New: " + lNew.ToString
         lblDifferent.Text = "Different: " + lDiff.ToString
+        lblRemoved.Text = "Removed: " + lRemove.ToString
     End Sub
 
     ''' <summary>
@@ -145,7 +147,7 @@ Public Class WebExclusive_Main
                 Next
 
                 If Not bFound Then
-                    dsData.DataTable1.AddDataTable1Row(tempIncoming.Name, tempIncoming.Price, String.Empty, tempIncoming.DATE_ENTERED, String.Empty)
+                    dsData.DataTable1.AddDataTable1Row(tempIncoming.Name, tempIncoming.Price, String.Empty, String.Empty, tempIncoming.DATE_ENTERED, String.Empty)
                     lNew += 1
                 End If
 
@@ -157,6 +159,30 @@ Public Class WebExclusive_Main
 
     End Sub
 
+    Private Sub CheckRemoved(ByRef dsIncoming As dsForm12)
+        Dim bFound As Boolean = False
+        lRemove = 0
+        For Each tempIncoming As dsForm12.DataTable1Row In dsData.DataTable1.Rows
+
+            bFound = False
+            For Each a As dsForm12.DataTable1Row In dsIncoming.DataTable1.Rows
+
+                If tempIncoming.Name.Trim.ToLower = a.Name.Trim.ToLower Then
+                    bFound = True
+                    Exit For
+                End If
+            Next
+
+            If Not bFound Then
+                tempIncoming.REMOVED = "1"
+                tempIncoming.DATE_UPDATED = DateTime.Now.ToString
+                lRemove += 1
+            End If
+
+        Next
+
+
+    End Sub
     ''' <summary>
     ''' Mostly used for testing saved pages on the merge and load.. won't be needing when done.
     ''' </summary>
@@ -265,5 +291,8 @@ Public Class WebExclusive_Main
         lblNew.Text = "New: 0"
         lblDifferent.Text = "Different: 0"
         lblNothingNew.Text = String.Empty
+        lblRemoved.Text = "Removed: 0"
     End Sub
+
+     
 End Class
