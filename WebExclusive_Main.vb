@@ -173,7 +173,7 @@ Public Class WebExclusive_Main
                 End If
             Next
 
-            If Not bFound Then
+            If Not bFound AndAlso tempIncoming.REMOVED <> "1" Then
                 tempIncoming.REMOVED = "1"
                 tempIncoming.DATE_UPDATED = DateTime.Now.ToString
                 lRemove += 1
