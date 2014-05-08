@@ -173,12 +173,17 @@ Public Class WebExclusive_Main
                 End If
             Next
 
-            If Not bFound AndAlso tempIncoming.REMOVED <> "1" Then
-                tempIncoming.REMOVED = "1"
-                tempIncoming.DATE_UPDATED = DateTime.Now.ToString
-                lRemove += 1
-            End If
+            Try
 
+                If Not bFound AndAlso (IsDBNull(tempIncoming.REMOVED) OrElse tempIncoming.REMOVED <> "1") Then
+                    tempIncoming.REMOVED = "1"
+                    tempIncoming.DATE_UPDATED = DateTime.Now.ToString
+                    lRemove += 1
+                End If
+
+            Catch ex As Exception
+
+            End Try
         Next
 
 

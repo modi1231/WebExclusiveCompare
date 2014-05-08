@@ -463,6 +463,7 @@ Partial Public Class dsForm12
             MyBase.Columns.Add(Me.columnDATE_ENTERED)
             Me.columnDATE_UPDATED = New Global.System.Data.DataColumn("DATE_UPDATED", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDATE_UPDATED)
+            Me.columnREMOVED.DefaultValue = CType("", String)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -656,11 +657,11 @@ Partial Public Class dsForm12
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property REMOVED() As String
             Get
-                Try
+                If Me.IsREMOVEDNull Then
+                    Return String.Empty
+                Else
                     Return CType(Me(Me.tableDataTable1.REMOVEDColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'REMOVED' in table 'DataTable1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set(value As String)
                 Me(Me.tableDataTable1.REMOVEDColumn) = value
