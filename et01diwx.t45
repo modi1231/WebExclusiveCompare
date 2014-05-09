@@ -300,7 +300,7 @@ Public Class WebExclusive_Main
     End Sub
 
     '-- quick convert from old data table to new one for the actual date/time columns and not just strings.
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Dim temp As New dsForm12
         temp.DataTable11.ReadXml("c:\test\201459_897river_135355test.xml")
         Dim dtDateUpdated As DateTime

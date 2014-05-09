@@ -22,6 +22,7 @@ Partial Class WebExclusive_Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnLoadFile = New System.Windows.Forms.Button()
         Me.txtLocation = New System.Windows.Forms.TextBox()
         Me.btnSaveXML = New System.Windows.Forms.Button()
@@ -248,6 +249,8 @@ Partial Class WebExclusive_Main
         'DATEUPDATEDDataGridViewTextBoxColumn
         '
         Me.DATEUPDATEDDataGridViewTextBoxColumn.DataPropertyName = "DATE_UPDATED"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DATEUPDATEDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.DATEUPDATEDDataGridViewTextBoxColumn.HeaderText = "DATE_UPDATED"
         Me.DATEUPDATEDDataGridViewTextBoxColumn.Name = "DATEUPDATEDDataGridViewTextBoxColumn"
         Me.DATEUPDATEDDataGridViewTextBoxColumn.Width = 120
@@ -294,11 +297,11 @@ Partial Class WebExclusive_Main
     Friend WithEvents lblDifferent As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lblNothingNew As System.Windows.Forms.Label
+    Friend WithEvents lblRemoved As System.Windows.Forms.Label
     Friend WithEvents NameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PriceDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents OldPricesDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents REMOVEDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DATEENTEREDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DATEUPDATEDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lblRemoved As System.Windows.Forms.Label
 End Class
