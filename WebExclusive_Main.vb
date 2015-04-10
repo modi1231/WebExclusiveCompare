@@ -12,8 +12,10 @@ Public Class WebExclusive_Main
     Dim sFileConst As String = "_897river_"
     Dim lRemove As Int32 = 0
 
+
     Private Sub ConvertDataSetOverToNew()
         ' -- 2015.04.08 - fixing busted dataset
+        '-- I accidentially was using the old project.. so this converts the xml to the new dataset to keep up with the times.
         Dim foo As New DataSet
 
         Try
@@ -60,7 +62,7 @@ Public Class WebExclusive_Main
         Dim sNewest As String = String.Empty
         lblNothingNew.Text = String.Empty
 
-        ConvertDataSetOverToNew()
+        '  ConvertDataSetOverToNew()
 
         '-- find newest saved file that has the sFileConst name and is .XML
         For Each temp As String In sFiles
