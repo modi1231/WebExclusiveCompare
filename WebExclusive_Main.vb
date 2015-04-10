@@ -68,17 +68,51 @@ Public Class WebExclusive_Main
         Dim sPrice As String = String.Empty
         Dim sDATE_ENTERED As String = dt.ToString        '--DateTime.Now.ToString
 
-        '-- scan the HTML for two key anchor points..
-        For i As Int32 = 0 To sArrayHTMLLines.Length - 1
+        ''-- scan the HTML for two key anchor points..
+        'For i As Int32 = 0 To sArrayHTMLLines.Length - 1
 
+        '    '-- if found strip the rest of the line cruft out and add the data to the holder list.
+        '    If (sArrayHTMLLines(i).ToLower().Contains("tdtitle")) Then
+        '        sListNamePriceholder.Add(sArrayHTMLLines(i + 1).Trim().Replace("</td>", String.Empty))
+        '    End If
+
+        '    If (sArrayHTMLLines(i).ToLower().Contains("price")) Then
+        '        sListNamePriceholder.Add(sArrayHTMLLines(i).Trim().Replace("&nbsp;", String.Empty).Replace("</td>", String.Empty))
+        '    End If
+        'Next
+
+        '-- 20150406 - update
+        Dim lStart As Int32 = 0 '-- issue with stuff before 'Web Premiums' words screwing up ordering.
+
+        For i As Int32 = 0 To sArrayHTMLLines.Length - 1
+            If (sArrayHTMLLines(i).ToLower().Contains("web premiums")) Then
+                lStart = i + 1
+                Exit For
+            End If
+        Next
+
+        For i As Int32 = lStart To sArrayHTMLLines.Length - 1
             '-- if found strip the rest of the line cruft out and add the data to the holder list.
+
             If (sArrayHTMLLines(i).ToLower().Contains("tdtitle")) Then
-                sListNamePriceholder.Add(sArrayHTMLLines(i + 1).Trim().Replace("</td>", String.Empty))
+                '-- 2015 04 06 - jj - occasionally have no price or sold.. so check the last one to make sure itw as a price/sold if entering a new description of the item.
+                If (sListNamePriceholder.Count > 0) AndAlso Not (sListNamePriceholder(sListNamePriceholder.Count - 1).Trim().ToLower.Contains("price") OrElse sListNamePriceholder(sListNamePriceholder.Count - 1).Trim().ToLower.Contains("sold")) Then
+                    sListNamePriceholder.Add(String.Empty)
+                End If
+
+                If sArrayHTMLLines(i + 1).Trim() = "<p>" Then
+                    sListNamePriceholder.Add(sArrayHTMLLines(i + 2).Trim().Replace("</td>", String.Empty))
+                Else
+                    sListNamePriceholder.Add(sArrayHTMLLines(i + 1).Trim().Replace("</td>", String.Empty))
+                End If
+
             End If
 
-            If (sArrayHTMLLines(i).ToLower().Contains("price")) Then
+            If (sArrayHTMLLines(i).ToLower().Contains("price") OrElse sArrayHTMLLines(i).ToLower().Contains("sold")) Then
                 sListNamePriceholder.Add(sArrayHTMLLines(i).Trim().Replace("&nbsp;", String.Empty).Replace("</td>", String.Empty))
             End If
+
+
         Next
 
 
