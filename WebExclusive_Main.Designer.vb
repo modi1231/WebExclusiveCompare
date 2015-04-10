@@ -68,7 +68,7 @@ Partial Class WebExclusive_Main
         Me.txtLocation.Name = "txtLocation"
         Me.txtLocation.Size = New System.Drawing.Size(412, 20)
         Me.txtLocation.TabIndex = 2
-        Me.txtLocation.Text = "C:\test\20140506_news.txt"
+        Me.txtLocation.Text = "C:\test\2015410_897river_10127.xml"
         '
         'btnSaveXML
         '
@@ -101,7 +101,6 @@ Partial Class WebExclusive_Main
         Me.GroupBox1.Controls.Add(Me.txtLocation)
         Me.GroupBox1.Controls.Add(Me.btnLoadFile)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupBox1.Enabled = False
         Me.GroupBox1.Location = New System.Drawing.Point(0, 630)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(809, 83)
@@ -115,7 +114,7 @@ Partial Class WebExclusive_Main
         Me.txtUrl.Name = "txtUrl"
         Me.txtUrl.Size = New System.Drawing.Size(408, 20)
         Me.txtUrl.TabIndex = 7
-        Me.txtUrl.Text = "http://897theriver.com/news.asp?int=210"
+        Me.txtUrl.Text = "http://897theriver.com/page.asp?int=11"
         '
         'btnClearGrid
         '

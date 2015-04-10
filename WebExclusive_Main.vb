@@ -12,6 +12,41 @@ Public Class WebExclusive_Main
     Dim sFileConst As String = "_897river_"
     Dim lRemove As Int32 = 0
 
+    Private Sub ConvertDataSetOverToNew()
+        ' -- 2015.04.08 - fixing busted dataset
+        Dim foo As New DataSet
+
+        Try
+            foo.ReadXml("C:\test\2015410_897river_10127 - Copy.xml")
+
+ 
+            Dim bar As dsForm12 = New dsForm12
+
+            Dim d1 As DateTime
+            Dim d2 As DateTime
+
+
+
+            '   bar.Tables(0).Columns(3).DataType = System.Type.GetType("System.DateTime")
+            '   bar.Tables(0).Columns(2).DataType = System.Type.GetType("System.DateTime")
+
+            For Each temp As DataRow In foo.Tables(0).Rows
+                DateTime.TryParse(temp(3).ToString, d1)
+                DateTime.TryParse(temp(4).ToString, d2)
+
+                bar.Tables(0).Rows.Add({temp(0).ToString, temp(1).ToString, temp(2).ToString, DBNull.Value, d1, d2})
+
+            Next
+            Stop
+            '  bar.DataTable1.WriteXml("c:\temp\jj.xml", XmlWriteMode.WriteSchema)
+            Merge(bar)
+
+        Catch ex As Exception
+            Stop
+        End Try
+
+    End Sub
+
     ''' <summary>
     ''' Try and load any saved xml files saved from a past run.
     ''' </summary>
@@ -24,6 +59,8 @@ Public Class WebExclusive_Main
 
         Dim sNewest As String = String.Empty
         lblNothingNew.Text = String.Empty
+
+        ConvertDataSetOverToNew()
 
         '-- find newest saved file that has the sFileConst name and is .XML
         For Each temp As String In sFiles
@@ -253,7 +290,7 @@ Public Class WebExclusive_Main
 
 
 
-        LoadData(temp, CType("05/06/2014 12:00", DateTime))
+        LoadData(temp, DateTime.Now)
     End Sub
 
     ''' <summary>
